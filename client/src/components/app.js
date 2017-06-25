@@ -8,12 +8,12 @@ import {
 
 import requireAuth from './hoc/require_authentication';
 
-import Welcome from './welcome';
+import Welcome from './welcome/welcome';
 
 import SignIn from './auth/signin';
 import SignOut from './auth/signout';
 import SignUp from './auth/signup';
-import Feature from './feature';
+import Feature from './feature/feature';
 
 export default class App extends Component {
 

@@ -8,14 +8,9 @@ import { AUTH_USER } from './actions/types';
 
 import App from './components/app';
 
-
-
-
-
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-
 const store = createStoreWithMiddleware(reducers);
 
 const token = localStorage.getItem('token');

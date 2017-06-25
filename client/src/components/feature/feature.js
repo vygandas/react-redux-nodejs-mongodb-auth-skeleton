@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
+
+import style from './feature.scss';
 
 class Feature extends Component {
 
@@ -14,7 +16,7 @@ class Feature extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Feature">
                 <h1>
                     {this.renderMessage()}
                 </h1>

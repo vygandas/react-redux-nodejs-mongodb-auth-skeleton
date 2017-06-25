@@ -1,7 +1,7 @@
 # React Redux NodeJs skeleton boilerplate project with user authentication and registration
 
 Skeleton boilerplate project with user authentication for fast
-launching new projects with React, Redux, NodeJs, MongoDB
+launching new projects with React, Redux, NodeJs, MongoDB.
 
 Authentication uses JsonWebTokens (JWT).
 
@@ -53,7 +53,10 @@ Will listen on http://localhost:3090
 ```
 cd client
 npm install
+npm run build
 npm start
 ```
 
 Will listen on http://localhost:8080
+
+*npm run build* - collects all sass stuff and places into one file.
