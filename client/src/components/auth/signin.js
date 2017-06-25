@@ -15,7 +15,7 @@ const renderInput = field =>  // Define stateless component to render input and 
 class SignIn extends Component {
 
     handleFormSubmit({ email, password }) {
-        this.props.signInUser({ email, password });
+        this.props.signInUser({ email, password }, this.props);
     }
 
     renderAlert() {

@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router';
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FEATURE_GET_MESSAGE } from '../actions/types';
 
 const API_URL = "http://localhost:3090";
 
-export function signInUser({ email, password }) {
+export function signInUser({ email, password }, { history }) {
     // Submit email and password to server
 
     return dispatch => { // this is Thunk library feature
@@ -20,7 +19,7 @@ export function signInUser({ email, password }) {
                 // - Save the JWT token
                 localStorage.setItem('token', response.data.token);
                 // - Redirect to the route '/feature'
-                browserHistory.push('/feature');
+                history.push('/feature');
             })
             .catch(() => {
                 // If request is bad...
@@ -39,13 +38,13 @@ export function signOutUser() {
     };
 }
 
-export function signUpUser({ email, password }) {
+export function signUpUser({ email, password }, { history }) {
     return dispatch => {
         const request = axios.post(`${API_URL}/signup`, { email, password })
             .then(response => {
                 dispatch({ type: AUTH_USER });
                 localStorage.setItem('token', response.data.token);
-                browserHistory.push('/feature');
+                history.push('/feature');
             })
             .catch(err => {
                 // console.log('errorType', typeof err);

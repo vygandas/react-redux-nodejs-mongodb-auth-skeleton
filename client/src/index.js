@@ -2,18 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import reduxThunk from 'redux-thunk';
 import { AUTH_USER } from './actions/types';
 
 import App from './components/app';
-import SignIn from './components/auth/signin';
-import SignOut from './components/auth/signout';
-import SignUp from './components/auth/signup';
-import Feature from './components/feature';
-import Welcome from './components/welcome';
 
-import requireAuth from './components/hoc/require_authentication';
+
+
+
 
 import reducers from './reducers';
 
@@ -29,14 +26,14 @@ if (token) {
 
 ReactDOM.render(
   <Provider store={store}>
-      <Router history={browserHistory}>
-          <Route path="/" component={App}>
-              <IndexRoute component={Welcome}/>
-              <Route path="signin" component={SignIn}/>
-              <Route path="signout" component={SignOut}/>
-              <Route path="signup" component={SignUp}/>
-              <Route path="feature" component={requireAuth(Feature)}/>
-          </Route>
-      </Router>
+      <BrowserRouter>
+          <div>
+              <Switch>
+                  <Route path="/" component={App}/>
+
+
+              </Switch>
+          </div>
+      </BrowserRouter>
   </Provider>
   , document.querySelector('.container'));
